@@ -32,6 +32,7 @@ public class StepsSearch {
 		obj.clicar("search-open");
 		obj.digitar("#masthead > div.site-header-content > div.desktop-search > form > label > input","agi");
 		obj.clicar("#masthead > div.site-header-content > div.desktop-search > form > input");
+
 	}
 
 	@Then("I validate the message that the system presents on the screen {string}")
