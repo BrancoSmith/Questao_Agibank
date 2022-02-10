@@ -2,6 +2,7 @@ package test.steps;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -23,14 +24,14 @@ public class StepsSearch {
 
 	@When("I look for the magnifying glass and click on it")
 	public void i_look_for_the_magnifying_glass_and_click_on_it() {
-		Manager.getDriver().findElement(By.id("search-open")).click();
+		obj.clicar("search-open");
 	}
 
 	@When("I type in the agi search field and click search")
 	public void i_type_in_the_agi_search_field_and_click_search() {
-		Manager.getDriver().findElement(By.id("search-open")).click();
-		Manager.getDriver().findElement(By.cssSelector("#masthead > div.site-header-content > div.desktop-search > form > label > input")).sendKeys("agi");
-		Manager.getDriver().findElement(By.cssSelector("#masthead > div.site-header-content > div.desktop-search > form > input")).click();
+		obj.clicar("search-open");
+		obj.digitar("#masthead > div.site-header-content > div.desktop-search > form > label > input","agi");
+		obj.clicar("#masthead > div.site-header-content > div.desktop-search > form > input");
 	}
 
 	@Then("I validate the message that the system presents on the screen {string}")

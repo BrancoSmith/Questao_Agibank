@@ -15,14 +15,11 @@ package test.steps;
 public class StepMagnifyingGlass {
 
     private Object obj = new Object();
-    public WebDriverWait wait;
-
-    public Select select;
 
     @Then("I validate that the type field and the search button are displayed on the screen")
     public void i_validate_that_the_type_field_and_the_search_button_are_displayed_on_the_screen() {
-        Manager.getDriver().findElement(By.id("search-open")).isDisplayed();
-        Manager.getDriver().findElement(By.cssSelector("#masthead > div.site-header-content > div.desktop-search > form > input")).isDisplayed();
+        obj.contem_na_tela("search-open");
+        obj.contem_na_tela("#masthead > div.site-header-content > div.desktop-search > form > input");
     }
 
     @io.cucumber.java.After(order = 0)

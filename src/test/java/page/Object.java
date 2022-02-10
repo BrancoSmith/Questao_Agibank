@@ -16,7 +16,7 @@ public class Object {
 		try {
 			Manager.getDriver().findElement(By.id(elemento)).click();
 		} catch (org.openqa.selenium.NoSuchElementException e) {
-			Manager.getDriver().findElement(By.xpath(elemento)).click();
+			Manager.getDriver().findElement(By.cssSelector(elemento)).click();
 		}
 	}
 
@@ -25,7 +25,7 @@ public class Object {
 		try {
 			Manager.getDriver().findElement(By.id(elemento)).sendKeys(texto);
 		} catch (org.openqa.selenium.NoSuchElementException e) {
-			Manager.getDriver().findElement(By.xpath(elemento)).sendKeys(texto);
+			Manager.getDriver().findElement(By.cssSelector(elemento)).sendKeys(texto);
 		}
 	}
 	
@@ -38,7 +38,15 @@ public class Object {
             String texto = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(elemento))).getText();
             return texto;
         }
-    } 
+    }
+
+    public void contem_na_tela(String elemento){
+        try {
+            Manager.getDriver().findElement(By.id(elemento)).isDisplayed();
+        } catch (org.openqa.selenium.NoSuchElementException e) {
+            Manager.getDriver().findElement(By.cssSelector(elemento)).isDisplayed();
+        }
+    }
     
     public void validar_mensagem(String texto_esperado, String texto) {
         Assert.assertEquals(texto_esperado, texto);    
